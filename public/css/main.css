@@ -1,0 +1,158 @@
+
+/* AUTH */
+.page-login {
+    display: flex;
+    padding-top: 80px;
+    height: 100vh;
+}
+
+.page-login .card {
+    padding:50px;
+}
+
+/* HOME */
+
+    /* LANDING */
+    .bg-landing {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background: #FEEAD8;
+        /* background: rgb(255,145,145); */
+        /* background: linear-gradient(-90deg, rgba(255,145,145,1) 0%, rgba(253,193,159,1) 69%, rgba(251,252,176,1) 100%);  */
+    }
+
+    .bg-landing-1 {
+        position: absolute;
+        width: 50vw;
+        left: -25vw;
+        top: -25vw;
+    }
+
+    .bg-landing-2 {
+        position: absolute;
+        width: 40vw;
+        right: 0;
+    }
+
+    .section-landing {
+        width: 100vw;
+        height: 80vh;
+        padding-top: 150px;
+    }
+
+
+    .section-landing h1 {
+        font-weight: 700;
+        font-size: 40pt;
+        text-transform: capitalize;
+        color: #474747 !important;
+    }
+
+    .section-landing span {
+        font-weight: 400;
+        color: #A0A0A0;
+    }
+
+
+    /* SERVICE */
+    .section-landing-service {
+
+    }
+
+    .section-landing-service .card-shadow{
+        text-decoration: none;
+        color: #A0A0A0;
+    }
+
+    .section-landing-service a:hover{
+        text-decoration: none !important;
+    }
+
+    .section-landing-service a:hover .card-shadow {
+        box-shadow: 1px 3px 20px 1px #F78C88;
+    }
+
+    .section-landing-service a:hover h5 {
+        color: #F78C88;
+    }
+
+    .section-landing-service .card-row{
+        /* padding:15px; */
+        box-shadow: 1px 3px 10px 1px #ABABAB;
+    }
+
+    .section-landing-service .col-md-4 {
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .section-landing-service .col-md-4:hover .card-white {
+        background: rgb(243, 242, 242);
+        
+    }
+
+    .section-landing-service .col-md-4:hover {
+        text-decoration: none;
+    }
+
+
+    /* FOOTER */
+    .section-footer {
+        /* height: 50vh; */
+        /* width: 100vw; */
+        padding: 50px;
+        background: #FEEAD8;
+
+    }
+
+
+/* SERVICE DETAIL */
+.section-service-detail {
+    padding-top: 50px;
+}
+
+.section-service-detail h1 {
+    font-size: 60pt;
+}
+
+.section-service-detail .col-md-4 .card-shadow {
+    cursor: pointer;
+}
+
+.card-item-selected {
+    background: #fddede;
+    transition-duration: 0.1s;
+}
+
+    /* HEWAN */
+    .section-jenishewan {
+
+    }
+
+    .section-jenishewan .card-shadow {
+        cursor: pointer;
+        color: #A0A0A0;
+    }
+
+    .section-jenishewan .card-shadow:hover {
+        background: #A0A0A0;
+    }
+
+    .section-jenishewan .card-jenishewan-selected {
+        background: #F78C88;
+        color: #ffffff;
+    }
+
+/* ORDER DETAIL */
+.section-order-detail {
+    margin-top: 120px;
+}
+
+.section-order-detail .col-md-4 {
+    font-size: 10pt;
+}
+
+.section-order-detail .col-md-4 label {
+    color: #A0A0A0;
+}

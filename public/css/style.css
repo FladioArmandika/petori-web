@@ -1,0 +1,171 @@
+
+
+/* 
+::::::::COLOR GUIDES::::::::
+
+primary red #F74848
+
+accent #FCFF7F
+
+
+text primary #484848
+text second #ABABAB
+
+bg #ECECEC
+:::::::::::::::::::::::::::::
+*/
+
+/* @font-face {
+    font-family: 'Nunito', sans-serif;
+} */
+
+body {
+    /* font-family: 'Nunito', sans-serif; */
+    background: #fbfbfd;
+    font-family: GothamRounded;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+.navbar-scrolled {
+    background: #ffffff;
+    box-shadow: 1px 1px 15px 1px #facdcb;
+}
+
+
+
+/* TEXT */
+.text-secondary {
+    color: #ABABAB;
+}
+
+.text-normal {
+    font-weight: 400;
+}
+
+
+h1 {
+    color: #474747;
+}
+
+/* BUTTON */
+.mbtn {
+    font-weight: bold;
+    padding: 15px 15px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.mbtn:hover {
+    text-decoration: none;
+}
+
+
+
+.btn {
+    box-shadow: none;
+    outline: none;
+    font-weight: bold;
+    padding: 15px 15px;
+    border: none;
+}
+
+.shadow {
+    box-shadow: 1px 3px 10px 1px #cfcfcf;
+}
+.shadow-primary {
+    box-shadow: 1px 3px 15px 1px #F78C88;
+}
+
+.btn-primary {
+    background: #F74848;
+    border:none;
+    transition-duration: 0.1s;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+    background: #F74848;
+}
+
+.btn-primary-gradient {
+    padding-left: 30px;
+    padding-right: 30px;
+    color: #ffffff;
+    background: rgb(249,189,129);
+    background: linear-gradient(90deg, rgba(249,189,129,1) 0%, rgba(248,136,138,1) 100%); 
+}
+
+.btn-primary-gradient:hover {
+    color: #ffffff;
+    box-shadow: 1px 3px 25px 1px #F78C88;
+}
+
+.btn-secondary {
+    background: #FCFF7F;
+    border: none;
+}
+
+.btn-secondary:hover {
+    opacity: 0.9;
+    background: #FCFF7F;
+}
+
+.btn-disable {
+    background: rgb(160, 160, 160);
+    border: none;
+    color: #ffffff;
+    transition-duration: 0.1s;
+}
+
+/* INPUT */
+.form-control {
+    border: 2px rgb(206, 205, 205) solid;
+    padding: 25px 25px;
+}
+
+/* card */
+
+
+
+
+.card-white {
+    padding:20px;
+    background: #ffffff;
+}
+
+.card-white .card-body {
+    padding:40px;
+}
+
+.card-shadow {
+    border: none;
+    border-radius: 5px;
+    padding:20px;
+    background: #ffffff;
+    box-shadow: 1px 3px 10px 1px #cfcfcf;
+}
+
+.card-shadow .card-body {
+    padding:40px;
+}
+
+.round-5 {
+    border-radius: 5px;
+}
+
+.round-15 {
+    border-radius: 15px;
+}
+
+.card-sm {
+    padding:10px !important;
+}
+
+.card-sm .card-body {
+    padding: 10px;
+}
+
+
+
