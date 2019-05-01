@@ -2,6 +2,10 @@
 
 @section('content')
 
-    profile section
+    <div class="container">
+        Profile
+
+        <a href={{ url('url', []) }}></a>
+    </div>
     
-@endsection
+@endsection 

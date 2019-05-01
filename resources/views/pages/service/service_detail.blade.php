@@ -89,6 +89,15 @@
 
         var listhewan = ['anjing','kucing','reptil','ikan','burung'];
 
+        cartId = [];
+        cartPrices = [];
+        totalPrice = 0;
+        $("#total-price").text(totalPrice);
+
+        cartId.forEach(element => {
+            $('#item-cb-'+key).prop('checked', false);
+        });
+
         listhewan.forEach(element => {
             if(element == hewan) {
                 $('#card-jenis-' + hewan).toggleClass('card-jenishewan-selected','1s');
@@ -106,6 +115,7 @@
                         $('#itemlist').html(data);
                     }
                 })
+
             } else {
                 $('#card-jenis-' + element).removeClass('card-jenishewan-selected','1s');
             }

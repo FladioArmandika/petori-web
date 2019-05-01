@@ -156,3 +156,29 @@
 .section-order-detail .col-md-4 label {
     color: #A0A0A0;
 }
+
+
+
+
+/* ORDER PAGE */
+.section-order {
+    margin-top: 120px;
+}
+
+.section-order .navbar-nav {
+    color: #A0A0A0;
+}
+
+.section-order .navbar-nav .nav-item {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.section-order .navbar-nav .nav-link {
+    cursor: pointer;
+}
+
+/* ORDER CONFIRMATION */
+.section-order-confirm {
+    margin-top: 120px;
+}

@@ -5,51 +5,51 @@
 <div class="section-order-detail">
     <div class="container">
         <a href="/" class="btn btn-link"> < kembali</a>
-        <div class="card-shadow mt-2">
-            
-            <div class="card-body">
-                <div class="row">
-                          
-                    <div class="col-md-8">
-                        <img src={{ asset('img/petori1.png') }} alt="" height="200px"
-                            style="position: absolute;bottom:0; left:0;">  
-                        @foreach ($items as $key => $item)
-                            @php($key++)
-                            <div class="row mt-2">
-                                <div class="col-md-1">{{$key}}</div>
-                                <div class="col-md-7">{{$item['name']}}</div>
-                                <div class="col-md-4 float-right">{{$item['price']}}</div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-10">
+                <div class="card-shadow mt-2">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="text-secondary" for="">Nama</label>
+                                    <h4 id="text-order-name">Fladio Armandika</h4>
+                                </div>
+                                <div class="form-group">
+                                    <label class="text-secondary" for="">Kota</label>
+                                    <h4 id="text-order-city">Cimahi</h4>
+                                </div>
                             </div>
-                        @endforeach
-                    </div>
-                    <div class="col-md-4">
-                        <button type="button" 
-                            class="btn btn-light btn-sm" 
-                            data-toggle="modal" data-target="#editAddress"
-                            style="position: absolute;right:0;top:0;">
-                            edit
-                        </button>
-                        <div class="form-group">
-                            <label for="">Nama</label>
-                            <h4 id="text-order-name">Fladio Armandika</h4>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="text-secondary" for="">Alamat</label>
+                                    <p id="text-order-address" style="font-weight: 100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium doloremque quas quasi a id, qui cum non libero, ad voluptatem inventore eveniet. Porro alias dolore animi sapiente saepe necessitatibus expedita!</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 ml-auto m-5" style="float:right;">
+                                
+                                <button type="button" 
+                                class="btn btn-secondary btn-sm " 
+                                data-toggle="modal" data-target="#editAddress">
+                                edit
+                                </button>
+                                <a href={{ url('/service/order/confirm', []) }}
+                                type="submit"
+                                class="btn btn-primary-gradient shadow">
+                                Lanjut
+                                </a>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="">Kota</label>
-                            <h4 id="text-order-city">Cimahi</h4>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Alamat</label>
-                            <p id="text-order-address" style="font-weight: 100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium doloremque quas quasi a id, qui cum non libero, ad voluptatem inventore eveniet. Porro alias dolore animi sapiente saepe necessitatibus expedita!</p>
-                        </div>
-                        <button type="submit"
-                            class="btn btn-primary-gradient ml-auto shadow">
-                            Lanjut
-                        </button>
+                        
+                        
+                        
+                        
+                       
                     </div>  
                 </div>
             </div>
-            
         </div>
+        
         
         
     </div>

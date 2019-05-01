@@ -48,6 +48,10 @@ h1 {
     color: #474747;
 }
 
+.nav-active {
+    color: #474747 !important;
+}
+
 /* BUTTON */
 .mbtn {
     font-weight: bold;

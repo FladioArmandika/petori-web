@@ -20,6 +20,9 @@ Route::group(['prefix'=>'service','as'=>'service.'], function() {
 
     Route::get('/order', 'Service\ServiceController@getOrderDetail')->name('order');
 
+    Route::get('/order/confirm', 'Service\ServiceController@getConfirmationPage')->name('order-confirm');
+
+
     Route::get('/order/fitems/{category}', 'Service\ServiceController@getItemComponent')->name('item-component');
 
     Route::post('/order', 'Service\ServiceController@postSelectedItem');
@@ -35,4 +38,8 @@ Route::group(['prefix'=>'auth','as'=>'auth.'], function() {
 
 Route::group(['prefix'=>'profile','as'=>'profile.'], function() {
     Route::get('/', 'User\ProfileController@getProfilePage');
+});
+
+Route::group(['prefix'=>'order','as'=>'order.'], function() {
+    Route::get('/', 'User\OrderController@getOrderPage');
 });

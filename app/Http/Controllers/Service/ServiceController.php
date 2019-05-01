@@ -86,6 +86,11 @@ class ServiceController extends Controller {
         ]);
     }
 
+    public function getConfirmationPage() {
+
+        return view('pages.service.order_confirm');
+    }
+
     // 
     public function postSelectedItem(Request $request) {
         $bodyContent = $request->getContent();
