@@ -42,4 +42,6 @@ Route::group(['prefix'=>'profile','as'=>'profile.'], function() {
 
 Route::group(['prefix'=>'order','as'=>'order.'], function() {
     Route::get('/', 'User\OrderController@getOrderPage');
+
+    Route::get('/s/{status}', 'User\OrderController@fetchOrder');
 });

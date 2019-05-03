@@ -82,13 +82,21 @@ class ServiceController extends Controller {
         }
 
         return view('pages.service.order_detail', [
-            'items' => $items
+            'items' => $items,
+            
         ]);
     }
 
-    public function getConfirmationPage() {
+    public function getConfirmationPage(Request $request) {
 
-        return view('pages.service.order_confirm');
+        $bodyContent = $request->getContent();
+
+        $city = $request->input('city');
+
+        return view('pages.service.order_confirm', [
+            'content' => $bodyContent,
+            'city' => $city
+        ]);
     }
 
     // 

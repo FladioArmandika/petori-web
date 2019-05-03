@@ -33,18 +33,14 @@
                                 data-toggle="modal" data-target="#editAddress">
                                 edit
                                 </button>
-                                <a href={{ url('/service/order/confirm', []) }}
+                                {{-- <a href={{ url('/service/order/confirm', []) }} --}}
+                                <a onclick="goToConfirmation()"
                                 type="submit"
                                 class="btn btn-primary-gradient shadow">
                                 Lanjut
                                 </a>
                             </div>
                         </div>
-                        
-                        
-                        
-                        
-                       
                     </div>  
                 </div>
             </div>
@@ -86,7 +82,33 @@
 </div>
 
 <script>
-    
+    function goToConfirmation() {
+
+        var name = $('#text-order-name').text();
+        var city = $('#text-order-city').text();
+        var address = $('#text-order-address').text();
+
+        console.log(name+city);
+        
+
+        var url = "{{ url('/service/order/confirm', []) }}"
+        $.ajax({
+            url: url,
+            data: {
+                name,
+                city,
+                address
+            },
+            type: 'GET',
+            beforeSend: function() {
+                $('.section-order-detail').html('loading')
+            },
+            success: function(data) {
+                $('.section-order-detail').html(data);
+            },
+            error: function(ts) { console.log(ts.responseText) }
+        });
+    }
 </script>
 
 @endsection

@@ -69,7 +69,6 @@ function updateButtonLanjutkan() {
 
 
 
-
 $(document).ready(function() {
     updateCart();
     totalPrice = 0;
