@@ -152,7 +152,7 @@ class ServiceController extends Controller {
     }
 
     public function makeOrder(Request $request) {
-
+        return redirect()->route('service.order');
     }
 
 
