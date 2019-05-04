@@ -2,6 +2,10 @@
 
 @section('content')
 
+@foreach ($items as $key => $item)
+    <input id="cart-item-{{$key}}" type="hidden" name="" value={{$item['_id']}}>
+@endforeach
+
 <div class="section-order-detail">
     <div class="container">
         <a href="/" class="btn btn-link"> < kembali</a>
@@ -88,7 +92,16 @@
         var city = $('#text-order-city').text();
         var address = $('#text-order-address').text();
 
-        console.log(name+city);
+        var numOfItem = {{$key}};
+        
+        var items = [];
+
+        for (let i = 0; i <= numOfItem; i++) {
+            var item = $("#cart-item-"+i).val();
+            items.push(item);
+        }
+
+        console.log(items);
         
 
         var url = "{{ url('/service/order/confirm', []) }}"
@@ -97,7 +110,8 @@
             data: {
                 name,
                 city,
-                address
+                address,
+                items
             },
             type: 'GET',
             beforeSend: function() {

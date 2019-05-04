@@ -92,10 +92,38 @@ class ServiceController extends Controller {
         $bodyContent = $request->getContent();
 
         $city = $request->input('city');
+        $name = $request->input('name');
+        $address = $request->input('address');
+        $itemIds = $request->input('items');
+
+        $items = [];
+        $totalPrice = 0;
+
+        // getting Items 
+        foreach ($itemIds as $key => $itemId) {
+            $url = 'https://petoriapi.herokuapp.com/item/' . $itemId;
+            $client = new Client();
+            $res = $client->get($url);
+            $result = $res->getBody();
+
+            $item = json_decode($result,true);
+
+            $totalPrice = $totalPrice + $item['price'];
+
+            array_push($items,$item);
+        }
+
+        $category = $items[0]['category'];
+        
 
         return view('pages.service.order_confirm', [
             'content' => $bodyContent,
-            'city' => $city
+            'city' => $city,
+            'name' => $name,
+            'address' => $address,
+            'items' => $items,
+            'totalprice' => $totalPrice,
+            'category' => $category
         ]);
     }
 
