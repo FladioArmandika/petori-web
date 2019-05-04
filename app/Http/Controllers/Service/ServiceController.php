@@ -109,7 +109,6 @@ class ServiceController extends Controller {
             $item = json_decode($result,true);
 
             $totalPrice = $totalPrice + $item['price'];
-
             array_push($items,$item);
         }
 
@@ -152,5 +151,12 @@ class ServiceController extends Controller {
             ]);
     }
 
+    public function makeOrder(Request $request) {
+
+    }
+
 
 }
+
+
+
