@@ -22,10 +22,13 @@ Route::group(['prefix'=>'service','as'=>'service.'], function() {
 
     Route::get('/order/confirm', 'Service\ServiceController@getConfirmationPage')->name('order-confirm');
 
-
     Route::get('/order/fitems/{category}', 'Service\ServiceController@getItemComponent')->name('item-component');
 
+    // Success
+    Route::get('/order/success', 'Service\ServiceController@getOrderSuccessPage')->name('order.success');
+
     Route::post('/order', 'Service\ServiceController@postSelectedItem');
+    Route::post('/order/make', 'Service\ServiceController@makeOrder');
 });
 
 Route::group(['prefix'=>'auth','as'=>'auth.'], function() {
@@ -34,7 +37,6 @@ Route::group(['prefix'=>'auth','as'=>'auth.'], function() {
     Route::get('/register', 'UserAuth\LoginController@getRegisterPage')->name('register');
 
 });
-
 
 Route::group(['prefix'=>'profile','as'=>'profile.'], function() {
     Route::get('/', 'User\ProfileController@getProfilePage');

@@ -139,20 +139,21 @@ class ServiceController extends Controller {
             $itemCart[$i] = $request->input('item-cb-'.$i);
         }
       
-
-      
         return redirect()->route('service.order')
             ->with( [
                 'request' => $bodyContent,
                 'serviceId' => $serviceId,
                 'items' => $itemCart,
                 'totalItem' => $totalItem
-               
             ]);
     }
 
     public function makeOrder(Request $request) {
-        return redirect()->route('service.order');
+        return redirect()->route('service.order.success');
+    }
+
+    public function getOrderSuccessPage() {
+        return view('pages.service.order_success');
     }
 
 

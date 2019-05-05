@@ -1,6 +1,10 @@
 
-    <div class="section-order-confirm ">
-        
+
+@foreach ($items as $key => $item)
+    <input id="cart-item-{{$key}}" type="hidden" name="" value={{$item['_id']}}>
+@endforeach
+
+    <div class="section-order-confirm">
         <div class="container">
             <div class="card-shadow">
                 <div class="card-body">
@@ -48,19 +52,59 @@
                         </div>
                         <div class="mr-auto ml-auto">
                             <a onclick="goBack()" class="btn btn-light text-secondary btn-lg shadow mr-3">Kembali</a>
-                            <a href="" class="btn btn-primary-gradient btn-lg shadow">Konfirmasi</a>
+                            <button onclick="makeOrder()" class="btn btn-primary-gradient btn-lg shadow">Konfirmasi</button>
                         </div>
-                        
                     </div>
                 </div>
             </div>
-            
-
         </div>
     </div>
 
-    <script>
-        function goBack() {
-            window.history.back()
+
+<script>
+    function goBack() {
+        window.history.back()
+    }
+</script>
+
+<script>
+
+    var request;
+
+    function makeOrder() {
+
+        var name = $('#text-order-name').text();
+        var city = $('#text-order-city').text();
+        var address = $('#text-order-address').text();
+
+        var numOfItem = {{$key}};
+        
+        var items = [];
+
+        for (let i = 0; i <= numOfItem; i++) {
+            var item = $("#cart-item-"+i).val();
+            items.push(item);
         }
-    </script>
+
+        var url = "{{ url('service/order/success', []) }}";
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            data: {
+                name,
+                city,
+                address,
+                items
+            },
+            beforeSend: function() {
+                $(".section-order-detail").html("loading");
+            },
+            success: function(data) {
+                $('.section-order-detail').html(data);
+            },
+            error: function(ts) { console.log(ts.responseText) }
+        })
+    }
+
+</script>
