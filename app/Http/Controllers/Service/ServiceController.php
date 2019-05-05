@@ -148,11 +148,33 @@ class ServiceController extends Controller {
             ]);
     }
 
-    public function makeOrder(Request $request) {
-        return redirect()->route('service.order.success');
-    }
+    
+    public function getOrderSuccessPage(Request $request) {
 
-    public function getOrderSuccessPage() {
+        $city = $request->input('city');
+        $name = $request->input('name');
+        $address = $request->input('address');
+        $itemIds = $request->input('items');
+
+        $userid = '';
+
+        // $url = 'https://petoriapi.herokuapp.com/order/make' . $itemId;
+        // $client = new Client();
+        // $res = $client->post(
+        //     $url,
+        //     array(
+        //         'body' => array(
+        //             'userid' => $userid,
+        //             'name' => $name,
+        //             'city' => $city,
+        //             'address' => $address,
+        //             'items' => $itemIds
+        //         )
+        //     )
+        // );
+
+        
+
         return view('pages.service.order_success');
     }
 

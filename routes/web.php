@@ -28,7 +28,6 @@ Route::group(['prefix'=>'service','as'=>'service.'], function() {
     Route::get('/order/success', 'Service\ServiceController@getOrderSuccessPage')->name('order.success');
 
     Route::post('/order', 'Service\ServiceController@postSelectedItem');
-    Route::post('/order/make', 'Service\ServiceController@makeOrder');
 });
 
 Route::group(['prefix'=>'auth','as'=>'auth.'], function() {
