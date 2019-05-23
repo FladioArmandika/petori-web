@@ -5,8 +5,6 @@ var totalPrice = 0;
 
 function addItemToCart(key,price) {
 
-    
-
     if (isItemSelected(key)) {
         console.log("item already selected");
         removeItemFromCart(key);

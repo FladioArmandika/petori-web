@@ -8,42 +8,49 @@
 
 <div class="section-order-detail">
     <div class="container">
-        <a href="/" class="btn btn-link"> < kembali</a>
+        {{-- <a href="/" class="btn btn-link"> < kembali</a> --}}
         <div class="row justify-content-md-center">
             <div class="col-md-10">
                 <div class="card-shadow mt-2">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="text-secondary" for="">Nama</label>
-                                    <h4 id="text-order-name">Fladio Armandika</h4>
-                                </div>
-                                <div class="form-group">
-                                    <label class="text-secondary" for="">Kota</label>
-                                    <h4 id="text-order-city">Cimahi</h4>
-                                </div>
+                                
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label class="text-secondary" for="">Nama</label>
+                                    <input id="text-order-name" type="text" class="form-control round-15">
+                                    {{-- <h4 id="text-order-name">Fladio Armandika</h4> --}}
+                                </div>
+                                <div class="form-group">
+                                    <label class="text-secondary" for="">Kota</label>
+                                    <input id="text-order-city" type="text" class="form-control round-15">
+                                    {{-- <h4 id="text-order-city">Cimahi</h4> --}}
+                                </div>
+                                <div class="form-group">
                                     <label class="text-secondary" for="">Alamat</label>
-                                    <p id="text-order-address" style="font-weight: 100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium doloremque quas quasi a id, qui cum non libero, ad voluptatem inventore eveniet. Porro alias dolore animi sapiente saepe necessitatibus expedita!</p>
+                                    <textarea id="text-order-address" name="" id="" cols="30" rows="3" class="form-control round-15"></textarea>
+                                    {{-- <p id="text-order-address" style="font-weight: 100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium doloremque quas quasi a id, qui cum non libero, ad voluptatem inventore eveniet. Porro alias dolore animi sapiente saepe necessitatibus expedita!</p> --}}
+                                </div>
+                                <div class="row mt-2" style="">
+                                    <div class="col-md-4">
+                                        <a href="/" type="button" 
+                                        class="btn btn-white btn-block btn-sm">
+                                        kembali
+                                        </a>
+                                    </div>
+                                    <div class="col-md-8">
+                                        {{-- <a href={{ url('/service/order/confirm', []) }} --}}
+                                        <a onclick="goToConfirmation()"
+                                        type="submit"
+                                        class="btn btn-primary-gradient shadow btn-block">
+                                        Lanjut
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 ml-auto m-5" style="float:right;">
-                                
-                                <button type="button" 
-                                class="btn btn-secondary btn-sm " 
-                                data-toggle="modal" data-target="#editAddress">
-                                edit
-                                </button>
-                                {{-- <a href={{ url('/service/order/confirm', []) }} --}}
-                                <a onclick="goToConfirmation()"
-                                type="submit"
-                                class="btn btn-primary-gradient shadow">
-                                Lanjut
-                                </a>
-                            </div>
+                            
                         </div>
                     </div>  
                 </div>
@@ -88,9 +95,9 @@
 <script>
     function goToConfirmation() {
 
-        var name = $('#text-order-name').text();
-        var city = $('#text-order-city').text();
-        var address = $('#text-order-address').text();
+        var name = $('#text-order-name').val();
+        var city = $('#text-order-city').val();
+        var address = $('#text-order-address').val();
 
         var numOfItem = {{$key}};
         

@@ -11,70 +11,49 @@
 
         <h1>{{ $service['name'] }}</h1>
 
-        <div class="row">
-            <div class="col-md-8">
-                
+        <div class="row mt-5">
+            <div class="col-md-5">
                 {{-- JENIS HEWAN --}}
                 <h3>Jenis Hewan</h3>
                 <div class="row section-jenishewan" >
-                    {{-- <div class="col-md-2">
-                        <div id='card-jenis-anjing' onclick="chooseJenisHewan('anjing')" class="card-shadow card-sm">
-                            <div class="card-body text-center"><span>Anjing</span></div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div id="card-jenis-kucing" onclick="chooseJenisHewan('kucing')" class="card-shadow card-sm">
-                            <div class="card-body text-center"><span>Kucing</span></div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div id="card-jenis-reptil" onclick="chooseJenisHewan('reptil')" class="card-shadow card-sm">
-                            <div class="card-body text-center"><span>Reptil</span></div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div id="card-jenis-ikan" onclick="chooseJenisHewan('ikan')" class="card-shadow card-sm">
-                            <div class="card-body text-center"><span>Ikan</span></div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div id="card-jenis-burung" onclick="chooseJenisHewan('burung')" class="card-shadow card-sm">
-                            <div class="card-body text-center"><span>Burung</span></div>
-                        </div>
-                    </div> --}}
                     @foreach ($categories as $category)
-                        <div class="col-md-2">
-                            <div id='card-jenis-{{$category}}' onclick="chooseJenisHewan('{{$category}}')" class="card-shadow card-sm">
+                        <div class="col-md-6  mt-2">
+                            <div id='card-jenis-{{$category}}' onclick="chooseJenisHewan('{{$category}}')" class="btn btn-outline-secondary btn-block card-sm round-15">
                                 <div class="card-body text-center"><span>{{ $category }}</span></div>
                             </div>
                         </div>
                     @endforeach
                 </div>
-
-                {{-- LAYANAN --}}
-                <div class="mt-5"></div>
-                <h3>Pilih Layanan</h3>
-                <div class="row" id="itemlist">
-                    {{-- ITEM COMPONENT --}}
-                </div>
             </div>
-            <div class="col-md-4">
-                {{-- SIDEBAR PAYMENT --}}
-                <div class="card-shadow">
-                    <div class="row">
-                        <div class="col-md-4">Total harga</div>
-                        <div class="col-md-8"  style="text-align: right">
-                            Rp.   <span id="total-price">0</span>
-                        </div>
+            <div class="col-md-7">
+                 {{-- LAYANAN --}}
+                 <h3>Pilih Layanan</h3>
+                 <div class="" id="itemlist">
+                     {{-- ITEM COMPONENT --}}
+                 </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- SIDEBAR PAYMENT --}}
+    <div class="total-price-card">
+        <div class="card-shadow">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h4>
+                            <span class="text-secondary">Total harga</span> Rp.<span id="total-price">0</span>
+                        </h4>
                     </div>
-                    
+                    <div class="col-md-4">
+                        <button 
+                            type="submit"
+                            id="btn-service-lanjut" 
+                            class="btn btn-disable btn-block mt-3 shadow">
+                            Lanjut
+                        </button>
+                    </div>    
                 </div>
-                <button 
-                    type="submit"
-                    id="btn-service-lanjut" 
-                    class="btn btn-disable btn-block mt-3 shadow">
-                    Lanjut
-                </button>
             </div>
         </div>
         

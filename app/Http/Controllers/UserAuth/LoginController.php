@@ -15,4 +15,6 @@ class LoginController extends Controller {
         return view('pages.auth.register');
     }
 
+    
+
 }

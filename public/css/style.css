@@ -73,6 +73,7 @@ h1 {
     font-weight: bold;
     padding: 15px 15px;
     border: none;
+    cursor: pointer;
 }
 
 .shadow {
@@ -96,7 +97,7 @@ h1 {
 .btn-primary-gradient {
     padding-left: 30px;
     padding-right: 30px;
-    color: #ffffff;
+    color: #ffffff !important;
     background: rgb(249,189,129);
     background: linear-gradient(90deg, rgba(249,189,129,1) 0%, rgba(248,136,138,1) 100%); 
 }
@@ -121,6 +122,15 @@ h1 {
     border: none;
     color: #ffffff;
     transition-duration: 0.1s;
+}
+
+.btn-outline-secondary {
+    border: 3px  rgb(160, 160, 160) solid;
+}
+
+.btn-white {
+    background: #ffffff;
+    box-shadow: 1px 3px 10px 1px #cfcfcf;
 }
 
 /* INPUT */
