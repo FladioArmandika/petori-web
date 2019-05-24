@@ -67,12 +67,22 @@
                     
                 </ul>
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href={{ url('/auth/login', []) }}>Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href={{ url('/auth/register', []) }}>Register</a>
-                    </li>
+                    @if ( empty(Session::get('user')) )
+                        <li class="nav-item">
+                            <a class="nav-link" href={{ url('/auth/login', []) }}>Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href={{ url('/auth/register', []) }}>Register</a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href={{ url('/order', []) }}>Order</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href={{ url('/auth/logout', []) }}>Logout</a>
+                        </li>
+                    @endif
+                    
                 </ul>
             </div>
         </div>

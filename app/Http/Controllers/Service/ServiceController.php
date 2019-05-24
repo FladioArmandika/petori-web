@@ -81,9 +81,19 @@ class ServiceController extends Controller {
             }
         }
 
+        // get user
+        $email = Session::get('user');
+        $url = 'https://petoriapi.herokuapp.com/user/e/' . $email;
+        $client = new Client();
+        $res = $client->get($url);
+        $result = $res->getBody();
+
+        $user = json_decode($result,true);
+
+
         return view('pages.service.order_detail', [
             'items' => $items,
-            
+            'user' => $user
         ]);
     }
 
@@ -114,6 +124,14 @@ class ServiceController extends Controller {
 
         $category = $items[0]['category'];
         
+         // get user
+         $email = Session::get('user');
+         $url = 'https://petoriapi.herokuapp.com/user/e/' . $email;
+         $client = new Client();
+         $res = $client->get($url);
+         $result = $res->getBody();
+ 
+         $user = json_decode($result,true);
 
         return view('pages.service.order_confirm', [
             'content' => $bodyContent,
@@ -122,7 +140,8 @@ class ServiceController extends Controller {
             'address' => $address,
             'items' => $items,
             'totalprice' => $totalPrice,
-            'category' => $category
+            'category' => $category,
+            'user' => $user
         ]);
     }
 
@@ -156,24 +175,22 @@ class ServiceController extends Controller {
         $address = $request->input('address');
         $itemIds = $request->input('items');
 
-        $userid = '';
+        $userid = $request->input('userid');
 
-        // $url = 'https://petoriapi.herokuapp.com/order/make' . $itemId;
-        // $client = new Client();
-        // $res = $client->post(
-        //     $url,
-        //     array(
-        //         'body' => array(
-        //             'userid' => $userid,
-        //             'name' => $name,
-        //             'city' => $city,
-        //             'address' => $address,
-        //             'items' => $itemIds
-        //         )
-        //     )
-        // );
-
-        
+        $url = 'https://petoriapi.herokuapp.com/order/make';
+        $client = new Client();
+        $res = $client->post(
+            $url,
+            array(
+                'form_params' => array(
+                    'userid' => $userid,
+                    'name' => $name,
+                    'city' => $city,
+                    'address' => $address,
+                    'items' => $itemIds
+                )
+            )
+        );
 
         return view('pages.service.order_success');
     }

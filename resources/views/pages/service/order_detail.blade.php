@@ -20,7 +20,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="text-secondary" for="">Nama</label>
-                                    <input id="text-order-name" type="text" class="form-control round-15">
+                                    <input id="text-order-name" type="text" class="form-control round-15" value={{$user['name']}}>
                                     {{-- <h4 id="text-order-name">Fladio Armandika</h4> --}}
                                 </div>
                                 <div class="form-group">
@@ -32,6 +32,14 @@
                                     <label class="text-secondary" for="">Alamat</label>
                                     <textarea id="text-order-address" name="" id="" cols="30" rows="3" class="form-control round-15"></textarea>
                                     {{-- <p id="text-order-address" style="font-weight: 100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium doloremque quas quasi a id, qui cum non libero, ad voluptatem inventore eveniet. Porro alias dolore animi sapiente saepe necessitatibus expedita!</p> --}}
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input class="form-check-input" type="checkbox" value="" id="cb-address">
+                                        <label class="form-check-label" for="cb-address">
+                                            gunakan dari profil
+                                        </label>
+                                    </div>
                                 </div>
                                 <div class="row mt-2" style="">
                                     <div class="col-md-4">
@@ -63,36 +71,24 @@
 </div>
     
     
-{{-- MODAL EDIT ALAMAT --}}
-<div class="modal fade" tabindex="-1" role="dialog" id="editAddress">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <div class="form-group">
-                <input id="input-order-name" type="text" class="form-control" placeholder="Nama">
-            </div>
-            <div class="form-group">
-                <input id="input-order-city" type="text" class="form-control" placeholder="Kota">
-            </div>
-            <div class="form-group">
-                <textarea name="" id="input-order-address" cols="30" rows="10" class="form-control" placeholder="Alamat"></textarea>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" >Close</button>
-            <button  onclick="changeAddressDetail()" type="button" class="btn btn-primary">Save changes</button>
-        </div>
-        </div>
-    </div>
-</div>
 
 <script>
+
+    $(document).ready(function() {
+        $('#cb-address').change(function(){
+        if ($(this).is(':checked')) {
+            $('#text-order-name').val("{{ $user['name'] }}");
+            $('#text-order-city').val("{{ $user['city'] }}");
+            $('#text-order-address').val("{{ $user['city'] }}");
+        } else {
+            $('#text-order-name').val("");
+        }
+    });
+    });
+
+    
+
+
     function goToConfirmation() {
 
         var name = $('#text-order-name').val();
@@ -122,9 +118,10 @@
             },
             type: 'GET',
             beforeSend: function() {
-                $('.section-order-detail').html('loading')
+                $('.section-order-detail').css('opacity', '0.5');
             },
             success: function(data) {
+                $('.section-order-detail').css('opacity', '1');
                 $('.section-order-detail').html(data);
             },
             error: function(ts) { console.log(ts.responseText) }

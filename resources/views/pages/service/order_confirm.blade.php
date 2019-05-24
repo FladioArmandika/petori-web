@@ -78,6 +78,8 @@
         var address = $('#text-order-address').text();
 
         var numOfItem = {{$key}};
+
+        var userid = "{{ $user['_id'] }}";
         
         var items = [];
 
@@ -88,20 +90,31 @@
 
         var url = "{{ url('service/order/success', []) }}";
 
+
+        console.log(userid);
+        console.log(name);
+        console.log(city);
+        console.log(address);
+
+        
+
         $.ajax({
             url: url,
             type: 'GET',
             data: {
-                name,
+                userid,
                 city,
                 address,
                 items
             },
             beforeSend: function() {
-                $(".section-order-detail").html("loading");
+                $('.section-order-confirm').css('opacity', '0.5');
             },
             success: function(data) {
-                $('.section-order-detail').html(data);
+                console.log(data);
+                
+                $('.section-order-confirm').css('opacity', '1');
+                $('.section-order-confirm').html(data);
             },
             error: function(ts) { console.log(ts.responseText) }
         })

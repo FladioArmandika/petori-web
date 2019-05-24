@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'MainController@getHomePage');
+Route::get('/', 'MainController@getHomePage')->name('home');
 
 Route::get('/tes', 'MainController@getServiceDetail');
 
@@ -35,6 +35,11 @@ Route::group(['prefix'=>'auth','as'=>'auth.'], function() {
     Route::get('/login', 'UserAuth\LoginController@getLoginPage')->name('login');
     Route::get('/register', 'UserAuth\LoginController@getRegisterPage')->name('register');
 
+    Route::get('/makelogin', 'UserAuth\LoginController@login')->name('makelogin');
+
+    Route::get('/makeRegister', 'UserAuth\LoginController@register')->name('register');
+
+    Route::get('/logout', 'UserAuth\LoginController@logout')->name('logout');
 });
 
 Route::group(['prefix'=>'profile','as'=>'profile.'], function() {
